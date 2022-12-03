@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/*==================== VARIABLES ====================*/
+:root {
+  --color-background: #161623;
+  --color-gradient-top: linear-gradient(to bottom, #eaafc8, #654ea3);
+  --color-gradient-bottom: linear-gradient(to bottom, #8e2de2, #4a00e0);
+  --clip-path-top: circle(18% at 15% 10%);
+  --clip-path-bottom: circle(23% at right 70%);
+  --color--white: #fff;
+  --box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.6);
+  --border-radius: 8px;
+  --card-background: rgba(255, 255, 255, 0.1);
+  --border: 1px solid rgba(255, 255, 255, 0.1);
+  --filter: blur(19px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--color-background);
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-gradient-top);
+  clip-path: var(--clip-path-top);
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-gradient-bottom);
+  clip-path: var(--clip-path-bottom);
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 55px;
+  color: var(--color--white);
+}
+
+.clocks {
+  display: flex;
+}
+
+.clocks .container {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  box-shadow: var(--box-shadow);
+  background: var(--card-background);
+  border-radius: var(--border-radius);
+  backdrop-filter: var(--filter);
+  transition: all 300ms ease;
+}
+
+.clocks .container:hover {
+  box-shadow: none;
+  background: none;
+  border-radius: none;
+  backdrop-filter: none;
+}
+
+.clocks .content {
+  font-size: 50px;
+  margin: 12px;
+  color: var(--color--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.clocks .content .text {
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+.box {
+  position: relative;
+}
+
+.box .square {
+  position: absolute;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  animation: animate 10s linear infinite;
+  animation-delay: calc(-1s * var(--i));
+}
+
+@keyframes animate {
+  0%,
+  100% {
+    transform: translateY(-40px);
+  }
+  50% {
+    transform: translateY(40px);
+  }
+}
+
+.box .square:nth-child(1) {
+  top: -150px;
+  right: 140px;
+  width: 100px;
+  height: 100px;
+}
+
+.box .square:nth-child(2) {
+  bottom: -23px;
+  left: 400px;
+  width: 120px;
+  height: 120px;
+  z-index: 2;
+}
+.box .square:nth-child(3) {
+  bottom: -190px;
+  right: -234px;
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+}
+
+.box .square:nth-child(4) {
+  bottom: 110px;
+  left: 120px;
+  width: 50px;
+  height: 50px;
+}
+
+.box .square:nth-child(5) {
+  top: -110px;
+  right: 540px;
+  width: 60px;
+  height: 60px;
+}
+
+.box .square:nth-child(6) {
+  top: 10px;
+  right: 250px;
+  width: 60px;
+  height: 60px;
+}
